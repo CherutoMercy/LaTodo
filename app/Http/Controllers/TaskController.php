@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Task;
 use App\Repositories\TaskRepository;
+use Illuminate\Support\Facades\Input;
 
 class TaskController extends Controller
 {
@@ -45,6 +46,13 @@ class TaskController extends Controller
         ]);
     }
 
+    public function tasks(Request $request)
+    {
+        return view('tasks.tasks', [
+            'tasks' => $this->tasks->forUser($request->user()),
+        ]);
+    }
+
     /**
      * Create a new task.
      *
@@ -59,9 +67,49 @@ class TaskController extends Controller
 
         $request->user()->tasks()->create([
             'name' => $request->name,
+            'description' => $request->description,
         ]);
 
-        return redirect('/tasks');
+        return redirect('/listtasks');
+    }
+
+
+    public function edit($id)
+    {
+      $task = Task::where('id','=', $id)->get();
+
+      return view('tasks/edit')->with('tasks',$task);
+    }
+
+
+    public function updat(Request $request)
+    {
+        $task = Task::findOrFail($id);
+
+        $this->validate($request, [
+            'name' => 'required',
+            'description' => 'required'
+        ]);
+
+        $input = $request->all();
+
+        $task->fill($input)->save();
+
+        return redirect('/listtasks');
+    }
+
+
+    public function update(Request $request)
+    {
+        $name = Input::get('name');
+
+        $task_obj = new Task();
+        $task_obj->id = $request->input('id');
+        $task = Task::find($task_obj->id);
+        $task->update(['name' => $name]);
+
+
+        return redirect('/listtasks');
     }
 
     /**
@@ -77,6 +125,6 @@ class TaskController extends Controller
 
         $task->delete();
 
-        return redirect('/tasks');
+        return redirect('/listtasks');
     }
 }

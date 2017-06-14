@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel Quickstart - Intermediate</title>
+    <title>MyTodo</title>
 
     <!-- Fonts -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
@@ -23,6 +23,30 @@
         .fa-btn {
             margin-right: 6px;
         }
+        .form-group {
+           padding-top: 70px;
+    }
+        .center{
+            text-align: center;
+        }
+        .card{
+            background-color: #f8f8f8;
+            margin: 10px;  
+        }
+        .index  {
+            background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--mkkE8O1S--/c_scale,fl_progressive,q_80,w_800/1884e9zof7czzjpg.jpg");
+            background-color: #cccccc;
+            height: 620px;
+        }
+        .navbar {
+             margin-bottom: 0px;
+        }
+        .pan{
+            margin-top: 230px;
+        }
+        .pan a{
+           font-size: 32px;
+        }
     </style>
 </head>
 <body id="app-layout">
@@ -39,8 +63,8 @@
                 </button>
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    Task List
+                <a class="navbar-brand" href="{{ url('/listtasks') }}">
+                 My Tasks
                 </a>
             </div>
 
@@ -56,6 +80,7 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
+                        <li><a href ="{{ url('/tasks') }}"><i class="fa fa-plus" aria-hidden="true"></i> Task</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
@@ -65,6 +90,7 @@
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
+                        <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                     @endif
                 </ul>
             </div>
