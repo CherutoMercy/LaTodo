@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
 use App\Task;
+use App\User;
 use App\Repositories\TaskRepository;
 use Illuminate\Support\Facades\Input;
+use Auth;
 
 class TaskController extends Controller
 {
@@ -82,31 +83,13 @@ class TaskController extends Controller
     }
 
 
-    public function updat(Request $request)
-    {
-        $task = Task::findOrFail($id);
-
-        $this->validate($request, [
-            'name' => 'required',
-            'description' => 'required'
-        ]);
-
-        $input = $request->all();
-
-        $task->fill($input)->save();
-
-        return redirect('/listtasks');
-    }
-
-
     public function update(Request $request)
     {
-        $name = Input::get('name');
-
+    
         $task_obj = new Task();
         $task_obj->id = $request->input('id');
         $task = Task::find($task_obj->id);
-        $task->update(['name' => $name]);
+        $task->update($request->all());
 
 
         return redirect('/listtasks');
@@ -127,4 +110,25 @@ class TaskController extends Controller
 
         return redirect('/listtasks');
     }
+
+    public function editsettings(Request $request)
+    {
+      $id = Auth::user()->id;
+      $user = User::where('id','=', $id)->get();
+
+      return view('auth/profile')->with('users',$user);
+    }
+
+
+    public function updatesettings(Request $request)
+    {
+        $user = Auth::user();
+        $user->update($request->all());
+
+        return redirect('/setting');
+
+        //return \Redirect::route('auth.profile', [$user->id])->with('message', 'User has been updated!');
+
+}
+
 }

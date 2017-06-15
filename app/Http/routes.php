@@ -28,6 +28,8 @@ Route::group(['middleware' => ['web']], function () {
         return view('welcome');
     })->middleware('guest');
 
+     Route::auth();
+
 //Task Routes
 
     Route::get('/tasks', 'TaskController@index');
@@ -38,9 +40,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::delete('/task/{task}', 'TaskController@destroy');
 
 //Setting Routes
-    Route::get('/setting', 'AuthController@index');
-    Route::post('/setting', 'AuthController@update');
+    Route::get('/setting', 'TaskController@editsettings');
+    Route::post('/setting', 'TaskController@updatesettings');
 
-    Route::auth();
+   
 
 });
