@@ -13,6 +13,8 @@
 
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <style>
@@ -48,6 +50,34 @@
            font-size: 32px;
         }
     </style>
+    <script type="text/javascript">
+var themes = {
+   "default": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css",
+   "cerulean": "//bootswatch.com/cerulean/bootstrap.min.css",
+   "cosmo": "//bootswatch.com/cosmo/bootstrap.min.css",
+   "cyborg": "//bootswatch.com/cyborg/bootstrap.min.css",
+   "flatly": "//bootswatch.com/flatly/bootstrap.min.css",
+   "journal": "//bootswatch.com/journal/bootstrap.min.css",
+   "readable": "//bootswatch.com/readable/bootstrap.min.css",
+   "simplex": "//bootswatch.com/simplex/bootstrap.min.css",
+   "slate": "//bootswatch.com/slate/bootstrap.min.css",
+   "spacelab": "//bootswatch.com/spacelab/bootstrap.min.css",
+   "united": "//bootswatch.com/united/bootstrap.min.css"
+      //etc... add your stylesheet from https://bootswatch.com/
+      //example:
+      // "ADDNAME": "//bootswatch.com/ADDNAME/bootstrap.min.css"
+}
+
+//switches
+$(function() {
+   var themesheet = $('<link href="' + themes['default'] + '" rel="stylesheet" />');
+   themesheet.appendTo('head');
+   $('.theme-link').click(function() {
+      var themeurl = themes[$(this).attr('data-theme')];
+      themesheet.attr('href', themeurl);
+   });
+});
+    </script>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -90,7 +120,25 @@
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
-                        <li><a href="{{ url('/setting') }}"><i class="fa fa-cog"></i> Settings</a></li>
+                        <li><a href="{{ url('/setting') }}"><i class="fa fa-user"></i> Profile</a></li>
+                                    <li class="dropdown">
+               <a href="#" class="dropdown-toggle pen-btn" data-toggle="dropdown">Change Theme_color <b class="caret"></b></a>
+               <ul class="dropdown-menu">
+                  <li><a href="#" data-theme="default" class="theme-link">Default</a></li>
+                  <li><a href="#" data-theme="cyborg" class="theme-link">Cyborg</a></li>
+                  <li><a href="#" data-theme="slate" class="theme-link">Slate</a></li>
+               </ul>
+               </li>
+               <li class="dropdown">
+               <a href="#" class="dropdown-toggle pen-btn" data-toggle="dropdown">Change Nav_color <b class="caret"></b></a>
+               <ul class="dropdown-menu">
+                  <li><a href="#" data-theme="cerulean" class="theme-link">Cerulean</a></li>
+                  <li><a href="#" data-theme="cosmo" class="theme-link">Cosmo</a></li>
+                  <li><a href="#" data-theme="flatly" class="theme-link">Flatly</a></li>
+                  </ul>
+               </li>
+               </ul>
+            </li>
                     @endif
                 </ul>
             </div>
