@@ -35,13 +35,14 @@
             background-color: #f8f8f8;
             margin: 10px;  
         }
+        .navbar navbar-default{
+            margin-bottom: 0px;
+        }
         .index  {
             background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--mkkE8O1S--/c_scale,fl_progressive,q_80,w_800/1884e9zof7czzjpg.jpg");
             background-color: #cccccc;
             height: 620px;
-        }
-        .navbar {
-             margin-bottom: 0px;
+            margin-top: 0px;
         }
         .pan{
             margin-top: 230px;
@@ -111,15 +112,6 @@ $(function() {
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
                         <li><a href ="{{ url('/tasks') }}"><i class="fa fa-plus" aria-hidden="true"></i> Task</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
                         <li><a href="{{ url('/setting') }}"><i class="fa fa-user"></i> Profile</a></li>
                                     <li class="dropdown">
                <a href="#" class="dropdown-toggle pen-btn" data-toggle="dropdown">Change Theme_color <b class="caret"></b></a>
@@ -137,6 +129,15 @@ $(function() {
                   <li><a href="#" data-theme="flatly" class="theme-link">Flatly</a></li>
                   </ul>
                </li>
+                                       <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                {{ Auth::user()->name }} <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                            </ul>
+                        </li>
                </ul>
             </li>
                     @endif
