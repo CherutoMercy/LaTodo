@@ -9,7 +9,7 @@
     <div class="card col-lg-3">
     <div style="width: 20rem;">
       <div class="card-block">
-        <h4 class="card-title center">{{ $task->name }}</h4>
+        <h4 class="card-title center"><b>{{ $task->name }}</b></h4>
         <p class="card-text">{{ $task->description }}</p>
         
          <div class="col-lg-6"> 

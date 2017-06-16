@@ -27,7 +27,11 @@
         }
         .form-group {
            padding-top: 70px;
-    }
+        }
+        h2{
+          font-size: 5px;
+          font-weight: lighter;
+        }
         .center{
             text-align: center;
         }
