@@ -33,10 +33,14 @@
         }
         .card{
             background-color: #f8f8f8;
-            margin: 10px;  
+            margin: 10px; 
+            padding-bottom: 15px; 
         }
         .navbar navbar-default{
             margin-bottom: 0px;
+        }
+        .navbar-brand a{
+          color: #000;
         }
         .index  {
             background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--mkkE8O1S--/c_scale,fl_progressive,q_80,w_800/1884e9zof7czzjpg.jpg");
@@ -111,7 +115,7 @@ $(function() {
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <li><a href="{{ url('/register') }}">Register</a></li>
                     @else
-                        <li><a href ="{{ url('/tasks') }}"><i class="fa fa-plus" aria-hidden="true"></i> Task</a></li>
+                        <li><a href ="{{ url('/tasks') }}"><i class="fa fa-plus" aria-hidden="true"></i>  Add Task</a></li>
                         <li><a href="{{ url('/setting') }}"><i class="fa fa-user"></i> Profile</a></li>
                                     <li class="dropdown">
                <a href="#" class="dropdown-toggle pen-btn" data-toggle="dropdown">Change Theme_color <b class="caret"></b></a>
