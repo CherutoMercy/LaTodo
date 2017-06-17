@@ -12,7 +12,7 @@
         <h4 class="card-title center"><b>{{ $task->name }}</b></h4>
         <p class="card-text">{{ $task->description }}</p>
         
-         <div class="col-lg-6"> 
+         <div class="col-md-6 del"> 
              <form action="{{url('task/' . $task->id)}}" method="POST">
           {{ csrf_field() }}
           {{ method_field('DELETE') }}
@@ -21,7 +21,7 @@
           </button>
          </form>
         </div>
-        <div class="col-lg-6">
+        <div class="col-md-6">
           <a href="{{ url('edittasks/' . $task->id) }}" class="btn btn-warning" role="button"><i class="fa fa-pencil-square-o"></i>Update</a>
      </div>
      

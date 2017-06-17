@@ -15,78 +15,9 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}"/>  
+    <script type="text/javascript" src="{!! asset('js/app.js') !!}"></script>
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
-    <style>
-        body {
-            font-family: 'Lato';
-        }
-
-        .fa-btn {
-            margin-right: 6px;
-        }
-        .form-group {
-           padding-top: 70px;
-        }
-        h2{
-          font-size: 5px;
-          font-weight: lighter;
-        }
-        .center{
-            text-align: center;
-        }
-        .card{
-            background-color: #f8f8f8;
-            margin: 10px; 
-            padding-bottom: 15px; 
-        }
-        .navbar navbar-default{
-            margin-bottom: 0px;
-        }
-        .navbar-brand a{
-          color: #000;
-        }
-        .index  {
-            background-image: url("https://i.kinja-img.com/gawker-media/image/upload/s--mkkE8O1S--/c_scale,fl_progressive,q_80,w_800/1884e9zof7czzjpg.jpg");
-            background-color: #cccccc;
-            height: 620px;
-            margin-top: 0px;
-        }
-        .pan{
-            margin-top: 230px;
-        }
-        .pan a{
-           font-size: 32px;
-        }
-    </style>
-    <script type="text/javascript">
-var themes = {
-   "default": "//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css",
-   "cerulean": "//bootswatch.com/cerulean/bootstrap.min.css",
-   "cosmo": "//bootswatch.com/cosmo/bootstrap.min.css",
-   "cyborg": "//bootswatch.com/cyborg/bootstrap.min.css",
-   "flatly": "//bootswatch.com/flatly/bootstrap.min.css",
-   "journal": "//bootswatch.com/journal/bootstrap.min.css",
-   "readable": "//bootswatch.com/readable/bootstrap.min.css",
-   "simplex": "//bootswatch.com/simplex/bootstrap.min.css",
-   "slate": "//bootswatch.com/slate/bootstrap.min.css",
-   "spacelab": "//bootswatch.com/spacelab/bootstrap.min.css",
-   "united": "//bootswatch.com/united/bootstrap.min.css"
-      //etc... add your stylesheet from https://bootswatch.com/
-      //example:
-      // "ADDNAME": "//bootswatch.com/ADDNAME/bootstrap.min.css"
-}
-
-//switches
-$(function() {
-   var themesheet = $('<link href="' + themes['default'] + '" rel="stylesheet" />');
-   themesheet.appendTo('head');
-   $('.theme-link').click(function() {
-      var themeurl = themes[$(this).attr('data-theme')];
-      themesheet.attr('href', themeurl);
-   });
-});
-    </script>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
@@ -137,15 +68,14 @@ $(function() {
                   <li><a href="#" data-theme="flatly" class="theme-link">Flatly</a></li>
                   </ul>
                </li>
-                                       <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
-                            </ul>
-                        </li>
+                  <li class="dropdown">
+                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                         {{ Auth::user()->name }} <span class="caret"></span>
+                    
+                     <ul class="dropdown-menu" role="menu">
+                         <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
+                     </ul>
+                 </li>
                </ul>
             </li>
                     @endif

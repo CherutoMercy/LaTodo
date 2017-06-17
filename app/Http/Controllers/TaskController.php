@@ -64,6 +64,7 @@ class TaskController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|max:255',
+            'description' => 'required|max:255',
         ]);
 
         $request->user()->tasks()->create([
@@ -85,6 +86,10 @@ class TaskController extends Controller
 
     public function update(Request $request)
     {
+       $this->validate($request, [
+           'name' => 'required|max:255',
+           'description' => 'required|max:255',
+        ]);
     
         $task_obj = new Task();
         $task_obj->id = $request->input('id');

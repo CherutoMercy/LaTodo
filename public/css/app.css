@@ -1,0 +1,37 @@
+       body {
+            font-family: 'Lato';
+        }
+
+        .fa-btn {
+            margin-right: 6px;
+        }
+        .form-group {
+           padding-top: 70px;
+        }
+        h2{
+          font-size: 5px;
+          font-weight: lighter;
+        }
+        .del{
+            padding-bottom:5px;
+        }
+        .center{
+            text-align: center;
+        }
+        .card{
+            background-color: #f8f8f8;
+            margin: 10px; 
+            padding: 5px 15px; 
+        }
+        .navbar navbar-default{
+            margin-bottom: 0px;
+        }
+        .navbar-brand a{
+          color: #000;
+        }
+        .pan{
+            margin-top: 230px;
+        }
+        .pan a{
+           font-size: 32px;
+        }
